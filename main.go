@@ -55,19 +55,19 @@ func CryptPSPayload() {
 	rand.Seed(time.Now().UnixNano())
 
 	var psPath string
-	gostyle.Write("[@Admin:~/NightyCrypter$] > Enter the path to the PowerShell script: ", gostyle.YELLOW_TO_RED, false)
+	gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Enter the path to the PowerShell script: ", gostyle.YELLOW_TO_RED, false)
 	fmt.Scanln(&psPath)
 
 	psContent, err := ioutil.ReadFile(psPath)
 	if err != nil {
-		gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error reading PowerShell script: %s\n", err), gostyle.RED_TO_YELLOW, false)
+		gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error reading PowerShell script: %s\n", err), gostyle.RED_TO_YELLOW, false)
 		return
 	}
 
-	layerInput := getinput("[@Admin:~/NightyCrypter$] > Enter the number of obfuscation layers: ")
+	layerInput := getinput("[@Admin:~/CodepulzeCrypter$] > Enter the number of obfuscation layers: ")
 	numLayers, err := strconv.Atoi(layerInput)
 	if err != nil {
-		gostyle.Write("[@Admin:~/NightyCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
+		gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
 		return
 	}
 
@@ -76,18 +76,18 @@ func CryptPSPayload() {
 	outputDir := filepath.Join("Built", "PowerShellPayloads")
 	err = os.MkdirAll(outputDir, 0755)
 	if err != nil {
-		gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
+		gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
 		return
 	}
 
-	outputPath := filepath.Join(outputDir, "NightyObfuscated.ps1")
+	outputPath := filepath.Join(outputDir, "CodepulzeObfuscated.ps1")
 	err = ioutil.WriteFile(outputPath, []byte(obfuscatedContent), 0644)
 	if err != nil {
-		gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error writing obfuscated script: %s\n", err), gostyle.RED_TO_YELLOW, false)
+		gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error writing obfuscated script: %s\n", err), gostyle.RED_TO_YELLOW, false)
 		return
 	}
 
-	gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
+	gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
 }
 
 func Obfuscate(code, alphabet string, setsNum, minNameLength int) string {
