@@ -20,3 +20,6 @@ make your scripts into payload, and undetectable from VT.
 - this was made to evade detections from static scanners, like virustotal and many more, thats why its only base64 + it was made for educational purposes.
 
 ### Output examples are in a OutputExamples directory.
+
+### future
+- xor since its way better lol
