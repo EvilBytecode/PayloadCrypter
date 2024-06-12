@@ -189,13 +189,13 @@ func BatchObf() {
 	obfuscatedScript := Obfuscate(string(fileContent), alphabet, 8, 5)
 
 	outputDir := "Built/BatchfilePaylods"
-	err = ioutil.WriteFile(outputDir+"/NightyObfuscated.bat", []byte(obfuscatedScript), 0644)
+	err = ioutil.WriteFile(outputDir+"/CodepulzeObfuscated.bat", []byte(obfuscatedScript), 0644)
 	if err != nil {
 		fmt.Println("Error writing obfuscated script:", err)
 		return
 	}
 
-	fmt.Printf("Obfuscated script saved as %s/NightyObfuscated.bat\n", outputDir)
+	fmt.Printf("Obfuscated script saved as %s/CodepulzeObfuscated.bat\n", outputDir)
 }
 
 
@@ -219,7 +219,7 @@ Author : Evilbytecode & Codepulze
    gostyle.Write("[3] Powershell Payload Crypter", gostyle.YELLOW_TO_RED, false)
    gostyle.Write("[4] JavaScript Payload Crypter", gostyle.YELLOW_TO_RED, false)
    gostyle.Write("[5] Batchfile Payload Crypter", gostyle.YELLOW_TO_RED, false)
-	gostyle.Write("[@Admin:~/NightyCrypter$] >", gostyle.YELLOW_TO_RED, false)
+	gostyle.Write("[@Admin:~/CodepulzeCrypter$] >", gostyle.YELLOW_TO_RED, false)
 
 	var optionStr string
 	fmt.Scanln(&optionStr)
@@ -243,7 +243,7 @@ Author : Evilbytecode & Codepulze
 
 func ConvertPSToBAT() {
 	reader := bufio.NewReader(os.Stdin)
-	gostyle.Write("[@Admin:~/NightyCrypter$] > Enter the full path of the PowerShell script file: ", gostyle.YELLOW_TO_RED, false)
+	gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Enter the full path of the PowerShell script file: ", gostyle.YELLOW_TO_RED, false)
 	hehe, _ := reader.ReadString('\n')
 	hehe = strings.TrimSpace(hehe)
 	hehe = strings.TrimRight(hehe, "\r\n")
@@ -260,7 +260,7 @@ func ConvertPSToBAT() {
 	monkcoded := base64.StdEncoding.EncodeToString(u16l)
 
 	monkiii := "Built/BatchfilePaylods"
-	monkgong := "NightyBuiltPS2BAT.bat"
+	monkgong := "CodepulzeBuiltPS2BAT.bat"
 	opat := filepath.Join(monkiii, monkgong)
 
 	os.MkdirAll(monkiii, 0755)
@@ -271,31 +271,31 @@ func ConvertPSToBAT() {
 	monkbat.WriteString("@echo off\n")
 	monkbat.WriteString(fmt.Sprintf("powershell.exe -NoExit -encodedCommand %s\nexit", monkcoded))
 
-	gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Converted: %s\n", opat), gostyle.YELLOW_TO_RED, false)
+	gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Converted: %s\n", opat), gostyle.YELLOW_TO_RED, false)
 }
 
 func CryptPythonPayload() {
     rand.Seed(time.Now().UnixNano())
 
     var pythonPath string
-    gostyle.Write("[@Admin:~/NightyCrypter$] > Enter the path to the Python script: ", gostyle.YELLOW_TO_RED, false)
+    gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Enter the path to the Python script: ", gostyle.YELLOW_TO_RED, false)
     fmt.Scanln(&pythonPath)
 
     if _, err := os.Stat(pythonPath); os.IsNotExist(err) {
-        gostyle.Write("[@Admin:~/NightyCrypter$] > Invalid path.\n", gostyle.RED_TO_YELLOW, false)
+        gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Invalid path.\n", gostyle.RED_TO_YELLOW, false)
         return
     }
 
     pythonContent, err := ioutil.ReadFile(pythonPath)
     if err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error reading Python script: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error reading Python script: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
-    layerInput := getinput("[@Admin:~/NightyCrypter$] > Enter the number of obfuscation layers: ")
+    layerInput := getinput("[@Admin:~/CodepulzeCrypter$] > Enter the number of obfuscation layers: ")
     numLayers, err := strconv.Atoi(layerInput)
     if err != nil {
-        gostyle.Write("[@Admin:~/NightyCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
+        gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
         return
     }
 
@@ -307,18 +307,18 @@ func CryptPythonPayload() {
             randVar, randVar, randVar)
     }
 
-    outputPath := filepath.Join("Built", "PythonPayloads", "NightyObfuscated.py")
+    outputPath := filepath.Join("Built", "PythonPayloads", "CodepulzeObfuscated.py")
     if err := os.MkdirAll(filepath.Dir(outputPath), 0755); err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
     if err := ioutil.WriteFile(outputPath, []byte(obfuscatedContent), 0644); err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error writing obfuscated Python script: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error writing obfuscated Python script: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
-    gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
+    gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
 }
 
 
@@ -326,24 +326,24 @@ func CryptJSPayload() {
     rand.Seed(time.Now().UnixNano())
 
     var jsPath string
-    gostyle.Write("[@Admin:~/NightyCrypter$] > Enter the path to the JavaScript file: ", gostyle.YELLOW_TO_RED, false)
+    gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Enter the path to the JavaScript file: ", gostyle.YELLOW_TO_RED, false)
     fmt.Scanln(&jsPath)
 
     if _, err := os.Stat(jsPath); os.IsNotExist(err) {
-        gostyle.Write("[@Admin:~/NightyCrypter$] > Invalid path.\n", gostyle.RED_TO_YELLOW, false)
+        gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Invalid path.\n", gostyle.RED_TO_YELLOW, false)
         return
     }
 
     jsContent, err := ioutil.ReadFile(jsPath)
     if err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error reading JavaScript file: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error reading JavaScript file: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
-    layerInput := getinput("[@Admin:~/NightyCrypter$] > Enter the number of obfuscation layers: ")
+    layerInput := getinput("[@Admin:~/CodepulzeCrypter$] > Enter the number of obfuscation layers: ")
     numLayers, err := strconv.Atoi(layerInput)
     if err != nil {
-        gostyle.Write("[@Admin:~/NightyCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
+        gostyle.Write("[@Admin:~/CodepulzeCrypter$] > Invalid input. Please enter a valid number.\n", gostyle.RED_TO_YELLOW, false)
         return
     }
 
@@ -352,16 +352,16 @@ func CryptJSPayload() {
         obfuscatedContent = fmt.Sprintf("eval(atob('%s'))", base64.StdEncoding.EncodeToString([]byte(obfuscatedContent)))
     }
 
-    outputPath := filepath.Join("Built", "JavaScriptPayloads", "NightyObfuscated.js")
+    outputPath := filepath.Join("Built", "JavaScriptPayloads", "CodepulzeObfuscated.js")
     if err := os.MkdirAll(filepath.Dir(outputPath), 0755); err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error creating output directory: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
     if err := ioutil.WriteFile(outputPath, []byte(obfuscatedContent), 0644); err != nil {
-        gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Error writing obfuscated JavaScript file: %s\n", err), gostyle.RED_TO_YELLOW, false)
+        gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Error writing obfuscated JavaScript file: %s\n", err), gostyle.RED_TO_YELLOW, false)
         return
     }
 
-    gostyle.Write(fmt.Sprintf("[@Admin:~/NightyCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
+    gostyle.Write(fmt.Sprintf("[@Admin:~/CodepulzeCrypter$] > Obfuscated script saved as %s\n", outputPath), gostyle.YELLOW_TO_RED, false)
 }
