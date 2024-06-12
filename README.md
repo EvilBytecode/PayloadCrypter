@@ -17,6 +17,6 @@ make your scripts into payload, and undetectable from VT.
 - **Batch files (Windows Command Scripts)**
 
 ### READ :
-- this was made to evade detections from static scanners, like virustotal and many more, thats why its only base64.
+- this was made to evade detections from static scanners, like virustotal and many more, thats why its only base64 + it was made for educational purposes.
 
 ### Output examples are in a OutputExamples directory.
