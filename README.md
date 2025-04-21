@@ -23,3 +23,7 @@ make your scripts into payload, and undetectable from VT.
 
 ### future
 - xor since its way better lol
+
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
