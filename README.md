@@ -1,4 +1,6 @@
 # PayloadCrypter
+## Telegram:
+- https://t.me/ebytelabs
 make your scripts into payload, and undetectable from VT.
 ![image](https://github.com/EvilBytecode/PayloadCrypter/assets/151552809/d8e47232-2673-4894-9cca-dcc74e907aa6)
 
